@@ -92,7 +92,7 @@ void pcf8574_display_write_string(char* _str, uint8_t _len)
 		if(i > (digits_on_line * lines_on_display))
 			break;
 		
-		if(i > digits_on_line && cur_line < 2)
+		if(i >= digits_on_line && cur_line < 2)
 			pcf8574_display_set_cursor(2, 0);
 		
 		pcf8574_display_send_data(_str[i]);
@@ -125,6 +125,7 @@ void pcf8574_display_return()
 {
 	pcf8574_display_send_command(LCD_RETURNHOME);
 	_delay_ms(2);
+	cur_line = 1;
 }
 
 // Send data to LCD display

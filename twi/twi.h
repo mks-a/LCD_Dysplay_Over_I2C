@@ -11,7 +11,7 @@
 #define debug
 
 #ifdef debug
-#include "../usart_dbg/usart_dbg.h"
+#include "../usart/usart.h"
 #endif
 
 #define TWI_TWINT_CLEAR() TWCR = TWCR & 0x7F 				//clears the TWINT flag
